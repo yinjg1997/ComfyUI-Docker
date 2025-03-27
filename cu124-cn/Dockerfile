@@ -111,7 +111,7 @@ cpp13 \
 ################################################################################
 # 配置使用国内源，安装 Python 包
 
-ENV PIP_INDEX_URL="https://mirrors.cernet.edu.cn/pypi/web/simple"
+ENV PIP_INDEX_URL="https://mirrors.tencent.com/pypi/simple"
 
 # PyTorch, xFormers
 # 拆分安装步骤，使生成的镜像文件分为更多更小的层，减少单层下载大小。
@@ -122,19 +122,19 @@ RUN --mount=type=cache,target=/root/.cache/pip \
     && pip install \
         --dry-run xformers torchvision torchaudio \
         --index-url https://download.pytorch.org/whl/cu124 \
-        --extra-index-url https://mirrors.cernet.edu.cn/pypi/web/simple
+        --extra-index-url https://mirrors.tencent.com/pypi/simple
 
 RUN --mount=type=cache,target=/root/.cache/pip \
     pip install \
         --no-deps xformers torch torchvision torchaudio \
         --index-url https://download.pytorch.org/whl/cu124 \
-        --extra-index-url https://mirrors.cernet.edu.cn/pypi/web/simple
+        --extra-index-url https://mirrors.tencent.com/pypi/simple
 
 RUN --mount=type=cache,target=/root/.cache/pip \
     pip install \
         xformers torchvision torchaudio \
         --index-url https://download.pytorch.org/whl/cu124 \
-        --extra-index-url https://mirrors.cernet.edu.cn/pypi/web/simple
+        --extra-index-url https://mirrors.tencent.com/pypi/simple
 
 # 绑定环境变量 (依赖库 .so 文件)
 ENV LD_LIBRARY_PATH="${LD_LIBRARY_PATH}\
