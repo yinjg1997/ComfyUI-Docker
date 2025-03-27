@@ -1,25 +1,31 @@
 ################################################################################
-# 用于构建镜像 'yanwk/comfyui-boot:cu124-cn' 的 Dockerfile
-# 为适应国内网络环境，运行时的下载地址均改用国内源。
-# 但需注意，构建本镜像时仍需要流畅的网络环境（完全走国内源请参考另一 Dockerfile）。
+# 下载地址改用国内源（不再适合 GitHub CI）。
+# 注意，构建时仍需访问 download.pytorch.org
 #
 # 使用 CUDA 12.4, Python 3.12, GCC 13
 # 容器内将以 root 用户运行，以便于 rootless 部署
 ################################################################################
 
-FROM docker.io/opensuse/tumbleweed:latest
+# 该基础镜像声明不含仓库前缀，因而会先尝试使用本地镜像
+FROM 1ms.run/opensuse/tumbleweed:latest
 
 LABEL maintainer="YAN Wenkun <code@yanwk.fun>"
 
 RUN set -eu
 
 ################################################################################
-# Python 及工具
+# 配置使用国内源，并安装 Python 及工具
 # 利用 openSUSE 软件仓库的 PIP 包，以确保兼容性以及更多的系统级支持。后续仍可使用 PIP 更新。
 
+# Temp fix: 因镜像大面积故障，故指定南京大学源，待清华源等修复后，应改为联合镜像站 https://mirrors.cernet.edu.cn
 RUN --mount=type=cache,target=/var/cache/zypp \
-    zypper addrepo --check --refresh --priority 90 \
-        'https://ftp.gwdg.de/pub/linux/misc/packman/suse/openSUSE_Tumbleweed/Essentials/' packman-essentials \
+    zypper modifyrepo --disable --all \
+    && zypper addrepo --check --refresh --gpgcheck \
+        'https://mirror.nju.edu.cn/opensuse/tumbleweed/repo/oss/' mirror-oss \
+    && zypper addrepo --check --refresh --gpgcheck \
+        'https://mirror.nju.edu.cn/opensuse/tumbleweed/repo/non-oss/' mirror-non-oss \
+    && zypper addrepo --check --refresh --priority 90 \
+        'https://mirror.nju.edu.cn/packman/suse/openSUSE_Tumbleweed/Essentials/' mirror-packman-essentials \
     && zypper --gpg-auto-import-keys \
         install --no-confirm --auto-agree-with-licenses \
 python312-devel \
@@ -81,7 +87,7 @@ google-noto-coloremoji-fonts
 ENV LD_PRELOAD=/usr/lib64/libjpeg.so.8
 
 ################################################################################
-# GCC 13 
+# GCC 13
 # 与 CUDA 12.4 兼容
 
 RUN --mount=type=cache,target=/var/cache/zypp \
@@ -100,10 +106,12 @@ cpp13 \
     && update-alternatives --install /usr/bin/gcc-ranlib gcc-ranlib /usr/bin/gcc-ranlib-13 90 \
     && update-alternatives --install /usr/bin/gcov gcov /usr/bin/gcov-13 90 \
     && update-alternatives --install /usr/bin/gcov-dump gcov-dump /usr/bin/gcov-dump-13 90 \
-    && update-alternatives --install /usr/bin/gcov-tool gcov-tool /usr/bin/gcov-tool-13 90 
+    && update-alternatives --install /usr/bin/gcov-tool gcov-tool /usr/bin/gcov-tool-13 90
 
 ################################################################################
-# Python 包
+# 配置使用国内源，安装 Python 包
+
+ENV PIP_INDEX_URL="https://mirrors.cernet.edu.cn/pypi/web/simple"
 
 # PyTorch, xFormers
 # 拆分安装步骤，使生成的镜像文件分为更多更小的层，减少单层下载大小。
@@ -114,19 +122,19 @@ RUN --mount=type=cache,target=/root/.cache/pip \
     && pip install \
         --dry-run xformers torchvision torchaudio \
         --index-url https://download.pytorch.org/whl/cu124 \
-        --extra-index-url https://pypi.org/simple
+        --extra-index-url https://mirrors.cernet.edu.cn/pypi/web/simple
 
 RUN --mount=type=cache,target=/root/.cache/pip \
     pip install \
         --no-deps xformers torch torchvision torchaudio \
         --index-url https://download.pytorch.org/whl/cu124 \
-        --extra-index-url https://pypi.org/simple
+        --extra-index-url https://mirrors.cernet.edu.cn/pypi/web/simple
 
 RUN --mount=type=cache,target=/root/.cache/pip \
     pip install \
         xformers torchvision torchaudio \
         --index-url https://download.pytorch.org/whl/cu124 \
-        --extra-index-url https://pypi.org/simple
+        --extra-index-url https://mirrors.cernet.edu.cn/pypi/web/simple
 
 # 绑定环境变量 (依赖库 .so 文件)
 ENV LD_LIBRARY_PATH="${LD_LIBRARY_PATH}\
@@ -163,27 +171,15 @@ RUN --mount=type=cache,target=/root/.cache/pip \
 # 确保依赖项匹配 ComfyUI & Manager
 RUN --mount=type=cache,target=/root/.cache/pip \
     pip install \
-        -r https://github.com/comfyanonymous/ComfyUI/raw/refs/heads/master/requirements.txt \
-        -r https://github.com/ltdrdata/ComfyUI-Manager/raw/refs/heads/main/requirements.txt \
+        -r https://gh-proxy.com/https://github.com/comfyanonymous/ComfyUI/raw/refs/heads/master/requirements.txt \
+        -r https://gh-proxy.com/https://github.com/ltdrdata/ComfyUI-Manager/raw/refs/heads/main/requirements.txt \
     && pip list
 
 ################################################################################
 
-# 使用国内下载源
+# HuggingFace 使用国内源
 
-# Temp fix: 因镜像大面积故障，故指定南京大学源，待清华源等修复后，应改为联合镜像站 https://mirrors.cernet.edu.cn
-RUN --mount=type=cache,target=/var/cache/zypp \
-    zypper modifyrepo --disable --all \
-    && zypper addrepo --check --refresh --gpgcheck \
-        'https://mirror.nju.edu.cn/opensuse/tumbleweed/repo/oss/' mirror-oss \
-    && zypper addrepo --check --refresh --gpgcheck \
-        'https://mirror.nju.edu.cn/opensuse/tumbleweed/repo/non-oss/' mirror-non-oss \
-    && zypper addrepo --check --refresh --priority 90 \
-        'https://mirror.nju.edu.cn/packman/suse/openSUSE_Tumbleweed/Essentials/' mirror-packman-essentials
-
-ENV PIP_INDEX_URL="https://mirrors.cernet.edu.cn/pypi/web/simple"
-        
-ENV HF_ENDPOINT="https://hf-mirror.com"
+ENV HF_ENDPOINT=https://hf-mirror.com
 
 ################################################################################
 

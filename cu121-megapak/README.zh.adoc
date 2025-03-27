@@ -47,6 +47,10 @@ https://github.com/YanWenKun/ComfyUI-Docker/issues/43[#43]
 如果搞不明白，也可以换 Win 原生的 https://github.com/YanWenKun/ComfyUI-Windows-Portable/blob/main/README.zh.adoc[ComfyUI Windows 多节点整合包] 试试。
 
 ## 用法
+[构建]
+---
+docker build -t cu121-megapak .
+---
 
 .使用 Docker
 [source,sh]

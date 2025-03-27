@@ -65,7 +65,18 @@ docker run -it --rm \
   -e PIP_INDEX_URL="https://mirrors.cernet.edu.cn/pypi/web/simple" \
   -e HF_ENDPOINT="https://hf-mirror.com" \
   yanwk/comfyui-boot:cu124-cn
-----
+
+ docker run -it --rm `
+  --name comfyui-cn `
+  --gpus all `
+  -p 8188:8188 `
+  -v "${PWD}/storage:/root" `
+  -e CLI_ARGS="--fast" `
+  -e PIP_INDEX_URL="https://mirrors.cernet.edu.cn/pypi/web/simple" `
+  -e HF_ENDPOINT="https://hf-mirror.com" `
+  yanwk/comfyui-boot:cu124-cn
+
+ ----
 
 .使用 Podman
 [source,sh]
