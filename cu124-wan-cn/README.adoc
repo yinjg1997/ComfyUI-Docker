@@ -55,6 +55,7 @@ https://www.coderjia.cn/archives/dba3f94c-a021-468a-8ac6-e840f85867ea[国内可�
 mkdir -p storage
 
 docker pull dockerproxy.cn/yanwk/comfyui-boot:cu124-cn
+docker pull yinjg/cu124_wan_cn
 
 docker run -it --rm \
   --name comfyui-cn \
