@@ -175,7 +175,7 @@ RUN --mount=type=cache,target=/root/.cache/pip \
     pip install \
         xformers==0.0.29.post1 torch==2.5.1 torchvision torchaudio
 
-ARG PIP_INDEX_URL=
+ARG PIP_INDEX_URL="https://mirrors.tencent.com/pypi/simple"
 ARG PIP_EXTRA_INDEX_URL=
 
 # Bind libs (.so files)
