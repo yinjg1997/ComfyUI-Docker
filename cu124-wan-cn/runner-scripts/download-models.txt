@@ -1,0 +1,149 @@
+########################################
+# Wan 2.1
+########################################
+https://hf-mirror.com/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/diffusion_models/wan2.1_i2v_480p_14B_fp8_e4m3fn.safetensors
+  dir=diffusion_models/wan2.1
+  out=wan2.1_i2v_480p_14B_fp8_e4m3fn.safetensors
+
+https://hf-mirror.com/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/diffusion_models/wan2.1_i2v_480p_14B_fp8_scaled.safetensors
+  dir=diffusion_models/wan2.1
+  out=wan2.1_i2v_480p_14B_fp8_scaled.safetensors
+
+https://hf-mirror.com/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/diffusion_models/wan2.1_i2v_720p_14B_fp8_e4m3fn.safetensors
+  dir=diffusion_models/wan2.1
+  out=wan2.1_i2v_720p_14B_fp8_e4m3fn.safetensors
+
+https://hf-mirror.com/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/diffusion_models/wan2.1_i2v_720p_14B_fp8_scaled.safetensors
+  dir=diffusion_models/wan2.1
+  out=wan2.1_i2v_720p_14B_fp8_scaled.safetensors
+
+https://hf-mirror.com/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/diffusion_models/wan2.1_t2v_14B_fp8_e4m3fn.safetensors
+  dir=diffusion_models/wan2.1
+  out=wan2.1_t2v_14B_fp8_e4m3fn.safetensors
+
+https://hf-mirror.com/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/diffusion_models/wan2.1_t2v_14B_fp8_scaled.safetensors
+  dir=diffusion_models/wan2.1
+  out=wan2.1_t2v_14B_fp8_scaled.safetensors
+
+
+https://hf-mirror.com/Kijai/WanVideo_comfy/blob/main/umt5-xxl-enc-fp8_e4m3fn.safetensors
+  dir=clip/wan2.1
+  out=umt5-xxl-enc-fp8_e4m3fn.safetensors
+
+https://hf-mirror.com/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/clip_vision/clip_vision_h.safetensors
+  dir=clip_vision
+  out=clip_vision_h.safetensors
+
+https://hf-mirror.com/Kijai/WanVideo_comfy/blob/main/Wan2_1_VAE_bf16.safetensors
+  dir=vae/wan2.1
+  out=Wan2_1_VAE_bf16.safetensors
+
+https://hf-mirror.com/motimalu/wan-flat-color-v2/resolve/main/wan_flat_color_v2.safetensors
+  dir=loras/wan
+  out=wan_flat_color_v2.safetensors
+
+https://hf-mirror.com/city96/Wan2.1-I2V-14B-720P-gguf/resolve/main/wan2.1-i2v-14b-720p-Q4_K_S.gguf
+  dir=unet/wan2.1
+  out=wan2.1-i2v-14b-720p-Q4_K_S.gguf
+
+https://hf-mirror.com/city96/Wan2.1-I2V-14B-480P-gguf/resolve/main/wan2.1-i2v-14b-480p-Q4_K_S.gguf
+  dir=unet/wan2.1
+  out=wan2.1-i2v-14b-480p-Q4_K_S.gguf
+
+https://hf-mirror.com/city96/Wan2.1-T2V-14B-gguf/resolve/main/wan2.1-t2v-14b-Q4_K_S.gguf
+  dir=unet/wan2.1
+  out=wan2.1-t2v-14b-Q4_K_S.gguf
+
+# 大模型（Checkpoints）
+
+https://hf-mirror.com/Comfy-Org/flux1-schnell/resolve/main/flux1-schnell-fp8.safetensors
+  dir=checkpoints
+  out=flux1-schnell-fp8.safetensors
+
+# VAE
+
+https://hf-mirror.com/stabilityai/sd-vae-ft-mse-original/resolve/main/vae-ft-mse-840000-ema-pruned.safetensors
+  dir=vae
+  out=vae-ft-mse-840000-ema-pruned.safetensors
+
+# TAESD（用于高质量预览）
+https://gh-proxy.com/https://raw.githubusercontent.com/madebyollin/taesd/main/taesd_decoder.pth
+  dir=vae_approx
+  out=taesd_decoder.pth
+https://gh-proxy.com/https://raw.githubusercontent.com/madebyollin/taesd/main/taesdxl_decoder.pth
+  dir=vae_approx
+  out=taesdxl_decoder.pth
+https://gh-proxy.com/https://raw.githubusercontent.com/madebyollin/taesd/main/taesd3_decoder.pth
+  dir=vae_approx
+  out=taesd3_decoder.pth
+https://gh-proxy.com/https://raw.githubusercontent.com/madebyollin/taesd/main/taef1_decoder.pth
+  dir=vae_approx
+  out=taef1_decoder.pth
+
+# 放大
+
+https://hf-mirror.com/gemasai/4x_NMKD-Siax_200k/resolve/main/4x_NMKD-Siax_200k.pth
+  dir=upscale_models
+  out=4x_NMKD-Siax_200k.pth
+https://hf-mirror.com/uwg/upscaler/resolve/main/ESRGAN/4x_foolhardy_Remacri.pth
+  dir=upscale_models
+  out=4x_foolhardy_Remacri.pth
+https://hf-mirror.com/uwg/upscaler/resolve/main/ESRGAN/8x_NMKD-Superscale_150000_G.pth
+  dir=upscale_models
+  out=8x_NMKD-Superscale_150000_G.pth
+
+# Embeddings
+
+https://hf-mirror.com/datasets/gsdf/EasyNegative/resolve/main/EasyNegative.safetensors
+  dir=embeddings
+  out=easynegative.safetensors
+https://hf-mirror.com/lenML/DeepNegative/resolve/main/NG_DeepNegative_V1_75T.pt
+  dir=embeddings
+  out=ng_deepnegative_v1_75t.pt
+
+# 用于 ImpactPack
+
+https://hf-mirror.com/dustysys/ddetailer/resolve/main/mmdet/bbox/mmdet_anime-face_yolov3.pth
+  dir=mmdets/bbox
+  out=mmdet_anime-face_yolov3.pth
+https://gh-proxy.com/https://raw.githubusercontent.com/Bing-su/dddetailer/master/config/mmdet_anime-face_yolov3.py
+  dir=mmdets/bbox
+  out=mmdet_anime-face_yolov3.py
+https://hf-mirror.com/datasets/Gourieff/ReActor/resolve/main/models/sams/sam_vit_b_01ec64.pth
+  dir=sams
+  out=sam_vit_b_01ec64.pth
+https://hf-mirror.com/Bingsu/adetailer/resolve/main/face_yolov8m.pt
+  dir=ultralytics/bbox
+  out=face_yolov8m.pt
+https://hf-mirror.com/Bingsu/adetailer/resolve/main/hand_yolov8s.pt
+  dir=ultralytics/bbox
+  out=hand_yolov8s.pt
+https://hf-mirror.com/Bingsu/adetailer/resolve/main/person_yolov8m-seg.pt
+  dir=ultralytics/segm
+  out=person_yolov8m-seg.pt
+
+# 用于 ReActor
+https://hf-mirror.com/datasets/Gourieff/ReActor/resolve/main/models/facerestore_models/GFPGANv1.3.pth
+  dir=facerestore_models
+  out=GFPGANv1.3.pth
+https://hf-mirror.com/datasets/Gourieff/ReActor/resolve/main/models/facerestore_models/GFPGANv1.4.pth
+  dir=facerestore_models
+  out=GFPGANv1.4.pth
+https://hf-mirror.com/datasets/Gourieff/ReActor/resolve/main/models/facerestore_models/codeformer-v0.1.0.pth
+  dir=facerestore_models
+  out=codeformer-v0.1.0.pth
+https://hf-mirror.com/datasets/Gourieff/ReActor/resolve/main/models/facerestore_models/GPEN-BFR-512.onnx
+  dir=facerestore_models
+  out=GPEN-BFR-512.onnx
+https://hf-mirror.com/datasets/Gourieff/ReActor/resolve/main/models/facerestore_models/GPEN-BFR-1024.onnx
+  dir=facerestore_models
+  out=GPEN-BFR-1024.onnx
+https://hf-mirror.com/datasets/Gourieff/ReActor/resolve/main/models/facerestore_models/GPEN-BFR-2048.onnx
+  dir=facerestore_models
+  out=GPEN-BFR-2048.onnx
+https://hf-mirror.com/datasets/Gourieff/ReActor/resolve/main/models/inswapper_128.onnx
+  dir=insightface
+  out=inswapper_128.onnx
+https://hf-mirror.com/datasets/Gourieff/ReActor/resolve/main/models/inswapper_128_fp16.onnx
+  dir=insightface
+  out=inswapper_128_fp16.onnx
