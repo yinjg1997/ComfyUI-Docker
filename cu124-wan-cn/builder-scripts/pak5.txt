@@ -52,3 +52,6 @@ uv
 webcolors
 yacs
 yapf
+
+trion
+sageattention
