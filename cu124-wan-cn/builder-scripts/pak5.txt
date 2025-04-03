@@ -53,5 +53,5 @@ webcolors
 yacs
 yapf
 
-trion
+triton
 sageattention
