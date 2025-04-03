@@ -122,7 +122,11 @@ docker run -it --rm \
 ----
 docker pull docker.m.daocloud.io/opensuse/tumbleweed:latest
 
-docker build . -t yanwk/comfyui-boot:cu124-cn -f Dockerfile-cn
+docker build . -t yinjg/cu124_wan_cn -f Dockerfile-cn
+
+docker tag yinjg/cu124_wan_cn yinjg/cu124_wan_cn:latest
+docker push yinjg/cu124_wan_cn:latest
+
 ----
 
 `Dockerfile-cn` 中绝大部分文件从国内源下载， PyTorch 部分来自 download.pytorch.org ，目前该域名下载速度基本正常。
