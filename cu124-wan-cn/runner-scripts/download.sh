@@ -79,6 +79,10 @@ clone_or_pull https://gh-proxy.com/https://github.com/pythongosssss/ComfyUI-Cust
 clone_or_pull https://gh-proxy.com/https://github.com/rgthree/rgthree-comfy.git
 clone_or_pull https://gh-proxy.com/https://github.com/shiimizu/ComfyUI_smZNodes.git
 clone_or_pull https://gh-proxy.com/https://github.com/WASasquatch/was-node-suite-comfyui.git
+clone_or_pull https://gh-proxy.com/https://github.com/city96/ComfyUI-GGUF.git
+clone_or_pull https://gh-proxy.com/https://github.com/yolain/ComfyUI-Easy-Use.git
+clone_or_pull https://gh-proxy.com/https://github.com/Suzie1/ComfyUI_Comfyroll_CustomNodes.git
+clone_or_pull https://gh-proxy.com/https://github.com/kijai/ComfyUI-Florence2.git
 
 # 控制
 clone_or_pull https://gh-proxy.com/https://github.com/cubiq/ComfyUI_InstantID.git
@@ -102,7 +106,6 @@ clone_or_pull https://gh-proxy.com/https://github.com/Kosinkadink/ComfyUI-VideoH
 clone_or_pull https://gh-proxy.com/https://github.com/melMass/comfy_mtb.git
 # wan2.1
 clone_or_pull https://gh-proxy.com/https://github.com/kijai/ComfyUI-WanVideoWrapper.git
-clone_or_pull https://gh-proxy.com/https://github.com/raindrop313/ComfyUI-WanVideoStartEndFrames.git
 
 
 # 更多

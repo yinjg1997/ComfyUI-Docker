@@ -72,11 +72,25 @@ docker run -it --rm \
   --gpus all `
   -p 8188:8188 `
   -v "${PWD}/storage:/root" `
+  -e CLI_ARGS="--fast --use-pytorch-cross-attention" `
+  -e PIP_INDEX_URL="https://mirrors.tencent.com/pypi/simple" `
+  -e HF_ENDPOINT="https://hf-mirror.com" `
+  cu124_wan_cn:latest `
+  /bin/bash /runner-scripts/minimal-start.sh
+
+
+ docker run -it --rm `
+  --name comfyui-cn `
+  --gpus all `
+  -p 8200:8188 `
+  -v "${PWD}/storage:/root" `
   -e CLI_ARGS="--fast" `
   -e PIP_INDEX_URL="https://mirrors.tencent.com/pypi/simple" `
   -e HF_ENDPOINT="https://hf-mirror.com" `
-  yanwk/comfyui-boot:cu124-cn
+  cu124_wan_cn:latest `
+  /bin/bash /runner-scripts/minimal-start.sh
 ----
+
 
 
 容器启动后，启动脚本会自动开始下载，如果之前下载未完成，则会尝试继续下载。
