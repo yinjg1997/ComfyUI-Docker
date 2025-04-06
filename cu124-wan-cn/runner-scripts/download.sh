@@ -97,6 +97,7 @@ clone_or_pull https://gh-proxy.com/https://github.com/ltdrdata/ComfyUI-Impact-Su
 clone_or_pull https://gh-proxy.com/https://github.com/ltdrdata/ComfyUI-Inspire-Pack.git
 clone_or_pull https://gh-proxy.com/https://github.com/mcmonkeyprojects/sd-dynamic-thresholding.git
 clone_or_pull https://gh-proxy.com/https://github.com/storyicon/comfyui_segment_anything.git
+clone_or_pull https://gh-proxy.com/https://github.com/logtd/ComfyUI-Fluxtapoz.git
 
 # 视频
 clone_or_pull https://gh-proxy.com/https://github.com/Fannovel16/ComfyUI-Frame-Interpolation.git
